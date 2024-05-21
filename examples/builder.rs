@@ -4,7 +4,7 @@ use derive_builder::Builder;
 
 #[allow(unused)]
 #[derive(Debug, Builder)]
-#[builder(build_fn(name = "_priv_build"))]
+#[builder(build_fn(name = "_priv_build"))] // 我们自己实现 build 方法
 struct User {
     // 只要实现了 Into<String> 就可以当参数
     #[builder(setter(into))]
