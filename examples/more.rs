@@ -12,7 +12,7 @@ struct Point2D {
 
 #[derive(Debug, PartialEq, From, Add, Display)]
 enum MyEnum {
-    #[display(fmt = "int: {_0}")]
+    #[display(fmt = "int: {_0}")] // 打印格式，为了区分 int 和 uint
     Int(i32),
     Uint(u32),
     #[display(fmt = "nothing")]
