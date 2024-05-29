@@ -44,3 +44,58 @@ cargo install --locked tokio-console
 ```
 
 再执行 `tokio-console` 就可以看到效果了，更多用法可以看它的 github
+
+## shortener 使用
+
+安装:
+```
+sudo apt update
+sudo apt install postgresql postgresql-contrib
+sudo systemctl start postgresql.service
+```
+
+修改 postgres 密码
+```
+sudo -u postgres psql
+postgres=# \password postgres
+Enter new password: <new-password>
+postgres=# \q
+```
+
+如果数据库没有创建的话要先创建
+```
+sudo -u postgres createdb shortener
+```
+
+运行完程序后，也可以在本地看数据库内容
+```
+sudo -u postgres psql
+```
+
+可以用 `\l` 命令显示所有数据库
+
+连接 `shortener` 数据库:
+```
+\c shortener
+# 会显示：
+# You are now connected to database "shortener" as user "postgres".
+```
+
+可以看到数据库里面有什么表：
+```
+shortener=# \dt
+        List of relations
+ Schema | Name | Type  |  Owner
+--------+------+-------+----------
+ public | urls | table | postgres
+(1 row)
+```
+
+也可以查看表里面内容：
+```
+shortener=# select * from urls;
+   id   |                             url
+--------+--------------------------------------------------------------
+ FW0Utx | https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/422
+(1 row)
+```
