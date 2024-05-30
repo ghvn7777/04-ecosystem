@@ -38,3 +38,13 @@ Content-Type: application/json
 ### url redirect
 
 GET http://127.0.0.1:9876/FW0Utx
+
+
+# ### 测试自动换 id
+
+# POST http://localhost:9876/
+# Content-Type: application/json
+
+# {
+#   "url": "https://google.com"
+# }
